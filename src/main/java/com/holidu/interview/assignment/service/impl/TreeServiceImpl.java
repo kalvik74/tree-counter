@@ -25,9 +25,10 @@ public class TreeServiceImpl implements TreeService {
 
         List<Tree> trees = soda2IntegrationAdapter.getAllWithinCircle(x, y, radius);
         return trees.stream()
-                .collect(Collectors.groupingBy(tree -> Optional.ofNullable(tree.getName())))
+                .filter(tree -> tree.getName() != null)
+                .collect(Collectors.groupingBy(Tree::getName))
                 .entrySet()
                 .stream()
-                .collect(Collectors.toMap(key -> key.getKey().orElse("null"), e -> e.getValue().size()));
+                .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().size()));
     }
 }

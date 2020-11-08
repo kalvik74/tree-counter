@@ -18,7 +18,7 @@ import static com.holidu.interview.assignment.utils.CoordinatUtils.meterToFoot;
 
 @Component
 public class Soda2IntegrationAdapter {
-    Logger logger = LoggerFactory.getLogger(Soda2IntegrationAdapter.class);
+    private static final Logger logger = LoggerFactory.getLogger(Soda2IntegrationAdapter.class);
     private final Soda2Consumer consumer;
 
     private final String treeDataSetId;
