@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class TreeCounterResourceTest {
+class TreeResourceTest {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -28,7 +28,7 @@ class TreeCounterResourceTest {
     @Test
     public void trees() throws Exception {
         MvcResult resultActions =  mockMvc.perform(
-                get("/tree")
+                get("/trees")
                         .param("x", "1027632.259")
                         .param("y", "254897.07")
                         .param("radius", "10")

@@ -13,15 +13,15 @@ import java.util.*;
 
 @RestController
 @Validated
-public class TreeCounterResource {
-    private static final Logger logger = LoggerFactory.getLogger(TreeCounterResource.class);
+public class TreeResource {
+    private static final Logger logger = LoggerFactory.getLogger(TreeResource.class);
     private final TreeService treeService;
 
-    public TreeCounterResource(TreeService treeService) {
+    public TreeResource(TreeService treeService) {
         this.treeService = treeService;
     }
 
-    @GetMapping("/tree")
+    @GetMapping("/trees")
     Map<String, Integer> trees(@RequestParam Double x, @RequestParam Double y, @RequestParam @Min(1) Long radius) {
         long start = System.currentTimeMillis();
         Map<String, Integer> trees = treeService.getGroupedTrees(x, y, radius);
