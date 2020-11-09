@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.holidu.interview.assignment.utils.CoordinatUtils.meterToFoot;
+import static com.holidu.interview.assignment.utils.CoordinatesUtils.meterToFeet;
 
 @Component
 public class Soda2IntegrationAdapter {
@@ -28,15 +28,12 @@ public class Soda2IntegrationAdapter {
         this.treeDataSetId = treeDataSetId;
     }
 
-
     public List<Tree> getAllWithinCircle(Double x, Double y, Long radius) {
         try {
 
-            double feet = meterToFoot(radius);
-
-            // get all trees inside square
+            double feet = meterToFeet(radius);
+            // gain all trees inside square
             List<Tree> candidates = getAllTreesWithinSquare(x - feet, x + feet, y - feet, y + feet);
-
             // additional check is tree inside circle
             return candidates.stream().filter(tree -> isWithinCircle(tree, x, y, feet)).collect(Collectors.toList());
         } catch (SodaError | InterruptedException e) {
@@ -45,11 +42,11 @@ public class Soda2IntegrationAdapter {
         }
     }
 
-    private boolean isWithinCircle(Tree tree, Double x, Double y, double feet) {
+    private boolean isWithinCircle(Tree tree, double x, double y, double feet) {
         return Math.pow(tree.getX() - x, 2) + Math.pow(tree.getY() - y, 2) - Math.pow(feet, 2) <= 0;
     }
 
-    private List<Tree> getAllTreesWithinSquare(Double minX, Double maxX, Double minY, Double maxY) throws SodaError, InterruptedException {
+    private List<Tree> getAllTreesWithinSquare(double minX, double maxX, double minY, double maxY) throws SodaError, InterruptedException {
         SoqlQuery treeQuery = new SoqlQueryBuilder()
                 .addSelectPhrase("spc_common")
                 .addSelectPhrase("x_sp")

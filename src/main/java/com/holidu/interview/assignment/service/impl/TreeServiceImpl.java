@@ -7,10 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
-
-import static com.holidu.interview.assignment.utils.CoordinatUtils.meterToFoot;
 
 @Service
 public class TreeServiceImpl implements TreeService {
@@ -22,9 +19,7 @@ public class TreeServiceImpl implements TreeService {
 
     @Override
     public Map<String, Integer> getGroupedTrees(Double x, Double y, Long radius) {
-
-        List<Tree> trees = soda2IntegrationAdapter.getAllWithinCircle(x, y, radius);
-        return trees.stream()
+        return soda2IntegrationAdapter.getAllWithinCircle(x, y, radius).stream()
                 .filter(tree -> tree.getName() != null)
                 .collect(Collectors.groupingBy(Tree::getName))
                 .entrySet()
