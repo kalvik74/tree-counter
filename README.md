@@ -1,7 +1,7 @@
 
 ### **Trees Counter**
 
-1) For running service run command: 
+1) For starting service run command: 
         
         mvn spring-boot:run
         
