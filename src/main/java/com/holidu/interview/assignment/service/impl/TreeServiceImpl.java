@@ -1,7 +1,7 @@
 package com.holidu.interview.assignment.service.impl;
 
-import com.holidu.interview.assignment.integration.soda2.Soda2IntegrationAdapter;
-import com.holidu.interview.assignment.integration.soda2.dto.Tree;
+import com.holidu.interview.assignment.adapter.soda2.Soda2IntegrationAdapter;
+import com.holidu.interview.assignment.adapter.soda2.dto.Tree;
 import com.holidu.interview.assignment.service.TreeService;
 import org.springframework.stereotype.Service;
 

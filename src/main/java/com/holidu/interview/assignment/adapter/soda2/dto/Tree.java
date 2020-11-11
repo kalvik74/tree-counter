@@ -1,4 +1,4 @@
-package com.holidu.interview.assignment.integration.soda2.dto;
+package com.holidu.interview.assignment.adapter.soda2.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

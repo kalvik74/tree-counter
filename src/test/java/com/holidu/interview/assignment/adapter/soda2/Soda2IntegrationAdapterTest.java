@@ -1,4 +1,4 @@
-package com.holidu.interview.assignment.integration.soda2;
+package com.holidu.interview.assignment.adapter.soda2;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

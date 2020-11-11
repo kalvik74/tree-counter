@@ -1,7 +1,7 @@
-package com.holidu.interview.assignment.integration.soda2;
+package com.holidu.interview.assignment.adapter.soda2;
 
-import com.holidu.interview.assignment.integration.soda2.dto.Tree;
-import com.holidu.interview.assignment.integration.soda2.exception.SodaIntegrationException;
+import com.holidu.interview.assignment.adapter.soda2.dto.Tree;
+import com.holidu.interview.assignment.adapter.soda2.exception.SodaIntegrationException;
 import com.socrata.api.Soda2Consumer;
 import com.socrata.builders.SoqlQueryBuilder;
 import com.socrata.exceptions.SodaError;
@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.holidu.interview.assignment.utils.CoordinatesUtils.meterToFeet;
